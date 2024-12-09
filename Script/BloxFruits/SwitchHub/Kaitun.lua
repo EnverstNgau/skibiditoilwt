@@ -1,5 +1,5 @@
 pcall(
-    function()
+    function() end 
 )
 
 local screenGui = Instance.new("ScreenGui")
