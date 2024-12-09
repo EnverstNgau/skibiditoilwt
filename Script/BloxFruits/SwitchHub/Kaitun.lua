@@ -1,6 +1,4 @@
 
-wait()
-
 for _, obj in pairs(game:GetDescendants()) do
     if obj:IsA("BasePart") then
         obj.Transparency = 0.8
