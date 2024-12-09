@@ -1,3 +1,39 @@
+repeat task.wait() until game:IsLoaded()
+
+pcall(
+    function()
+)
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local fpsLabel = Instance.new("TextLabel")
+fpsLabel.Size = UDim2.new(0, 200, 0, 50)
+fpsLabel.Position = UDim2.new(0, 10, 0, 10)
+fpsLabel.BackgroundTransparency = 1
+fpsLabel.TextSize = 30
+fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+fpsLabel.Text = "Fps: 0"
+fpsLabel.Parent = screenGui
+
+local lastTime = tick()
+local frames = 0
+local fps = 0
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    frames = frames + 1
+    local currentTime = tick()
+
+    if currentTime - lastTime >= 1 then
+        fps = frames
+        frames = 0
+        lastTime = currentTime
+            
+        fpsLabel.Text = "Fps: " .. fps
+    end
+end)
+
+wait(1)
 
 for _, obj in pairs(game:GetDescendants()) do
     if obj:IsA("BasePart") then
@@ -11,7 +47,7 @@ for _, obj in pairs(game:GetDescendants()) do
     end
 end
 
-wait() 
+wait(1) 
 
 _G.Quest = { 
   ['RGB Aura Haki'] = true,
