@@ -3477,6 +3477,210 @@ if _G.Switch_Hub_Series_R then
 		game:GetService'VirtualUser':CaptureController()
 		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 	end
+	local plr = game.Players.LocalPlayer
+local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
+local CbFw2 = CbFw[2]
+local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
+local CombatFrameworkR = getupvalues(CombatFramework)[2]
+local RigController = require(game:GetService("Players")["LocalPlayer"].PlayerScripts.CombatFramework.RigController)
+local RigControllerR = getupvalues(RigController)[2]
+local realbhit = require(game.ReplicatedStorage.CombatFramework.RigLib)
+function GetCurrentBlade() 
+	local p13 = CbFw2.activeController
+	local ret = p13.blades[1]
+	if not ret then return end
+	while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+	return ret
+end
+function AttackNoCD() 
+	local AC = CbFw2.activeController
+	for i = 1, 1 do 
+		local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+			plr.Character,
+			{plr.Character.HumanoidRootPart},
+			100
+		)
+        local cac = {}
+        local hash = {}
+        for k, v in pairs(bladehit) do
+            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+                table.insert(cac, v.Parent.HumanoidRootPart)
+                hash[v.Parent] = true
+            end
+        end
+        bladehit = cac
+		if #bladehit > 0 then
+			local u8 = debug.getupvalue(AC.attack, 5)
+			local u9 = debug.getupvalue(AC.attack, 6)
+			local u7 = debug.getupvalue(AC.attack, 4)
+			local u10 = debug.getupvalue(AC.attack, 7)
+			local u12 = (u8 * 798405 + u7 * 727595) % u9
+			local u13 = u7 * 798405
+			(function()
+			u12 = (u12 * u9 + u13) % 1099511627776
+				u8 = math.floor(u12 / u9)
+				u7 = u12 - u8 * u9
+			end)()
+			u10 = u10 + 1
+			debug.setupvalue(AC.attack, 5, u8)
+			debug.setupvalue(AC.attack, 6, u9)
+			debug.setupvalue(AC.attack, 4, u7)
+			debug.setupvalue(AC.attack, 7, u10)
+            a = math.random(1, 2)
+            pcall(function()
+                for k, v in pairs(AC.animator.anims.basic) do
+                    v:Play(0.01, 0.01, 0.01)
+                end                  
+            end)
+			if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
+				game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("unequipWeapon",tostring(GetCurrentBlade()))
+				game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
+				game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
+			end
+		end
+	end
+end
+
+function getAllBladeHits(Sizes)
+    local Hits = {}
+    local Client = game.Players.LocalPlayer
+    local Enemies = game:GetService("Workspace").Enemies:GetChildren()
+    for i=1,#Enemies do local v = Enemies[i]
+        local Human = v:FindFirstChildOfClass("Humanoid")
+        if Human and Human.RootPart and Human.Health > 0 and Client:DistanceFromCharacter(Human.RootPart.Position) < Sizes+5 then
+            table.insert(Hits,Human.RootPart)
+        end
+    end
+    local Hits = {}
+    local Client = game.Players.LocalPlayer
+    local Characters = game:GetService("Workspace").Characters:GetChildren()
+    for i=1,#Characters do local v = Characters[i]
+        local Human = v:FindFirstChildOfClass("Humanoid")
+        if v.Name ~= game.Players.LocalPlayer.Name and Human and Human.RootPart and Human.Health > 0 and Client:DistanceFromCharacter(Human.RootPart.Position) < Sizes+5 then
+            table.insert(Hits,Human.RootPart)
+        end
+    end
+    return Hits
+end
+
+function AttackFunction()
+    local ac = CombatFrameworkR.activeController
+    if ac and ac.equipped then
+        for indexincrement = 1, 1 do
+            local bladehit = getAllBladeHits(100)
+            if #bladehit > 0 then
+                local AcAttack8 = debug.getupvalue(ac.attack, 5)
+                local AcAttack9 = debug.getupvalue(ac.attack, 6)
+                local AcAttack7 = debug.getupvalue(ac.attack, 4)
+                local AcAttack10 = debug.getupvalue(ac.attack, 7)
+                local NumberAc12 = (AcAttack8 * 798405 + AcAttack7 * 727595) % AcAttack9
+                local NumberAc13 = AcAttack7 * 798405
+                (function()
+                    NumberAc12 = (NumberAc12 * AcAttack9 + NumberAc13) % 1099511627776
+                    AcAttack8 = math.floor(NumberAc12 / AcAttack9)
+                    AcAttack7 = NumberAc12 - AcAttack8 * AcAttack9
+                end)()
+                AcAttack10 = AcAttack10 + 1
+                debug.setupvalue(ac.attack, 5, AcAttack8)
+                debug.setupvalue(ac.attack, 6, AcAttack9)
+                debug.setupvalue(ac.attack, 4, AcAttack7)
+                debug.setupvalue(ac.attack, 7, AcAttack10)
+                for k, v in pairs(ac.animator.anims.basic) do
+                    v:Play(0.01,0.01,0.01)
+                end                 
+                if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and ac.blades and ac.blades[1] then 
+                    game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                    game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(NumberAc12 / 1099511627776 * 16777215), AcAttack10)
+                    game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, 2, "") 
+                end
+            end
+        end
+    end
+end
+function RemoveEF()
+    a = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync
+    b = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
+    require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync = function(a1,a2,a3,a4,a5)
+        local GetBladeHits = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).getBladeHits(a2,a3,a4)
+        if GetBladeHits then
+            require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = function()
+            end
+            a1:Play(0.2, 0.2, 0.2)
+            a5(GetBladeHits)
+            require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = b
+            wait()
+            a1:Stop()
+        end
+    end
+end
+function ThayChu(Damage)
+    local DamageModule = require(game:GetService("ReplicatedStorage").Effect.Container.Misc.Damage)
+    local old = DamageModule.Run
+    DamageModule.Run = function(...)
+        args = {...}
+        if Damage then
+            args[1]['Value'] = Damage
+        end
+        return old(unpack(args))
+    end
+end 
+function ellllllfffff()
+    local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+    if _G.FastAttack then
+        CamShake:Stop()
+    else
+        return
+    end
+end
+function check()
+    local mob, player = false, false
+    for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
+        if (v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart")) then
+            mob = true
+            break
+        end
+    end
+    for i, v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+        if (v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart")) then
+            player = true
+            break
+        end
+    end
+    if player == true and mob == false then
+        return 1
+    elseif player == false and mob == true then
+        return 2
+    elseif player == true and mob == true then
+        return 3
+    end
+    return 4
+end
+function gplcv()
+    game.Players.LocalPlayer.Character.Stun.Value = 0
+    game.Players.LocalPlayer.Character.Busy.Value = false
+end
+_G.FastAttack = true
+task.spawn(function()
+    while task.wait() do
+        if _G.FastAttack then
+            if check() == 3 or check() == 2 or check() == 1 then
+                pcall(function()
+                    task.wait() task.wait() task.wait() task.wait()
+                    ThayChu("memaybeohub on top best kaitun free 100%") 
+                    gplcv()
+                    RemoveEF()
+                    ellllllfffff()
+                    AttackNoCD() 
+                    AttackFunction()
+                    task.wait() task.wait() task.wait()
+                end)
+            elseif check() == 4 then
+                gplcv()
+            end
+        end
+    end
+end)                           
 	function GetItem(vu)
 		for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
 			if v["Name"] == vu then
