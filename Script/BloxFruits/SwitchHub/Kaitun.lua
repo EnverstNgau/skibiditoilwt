@@ -2,6 +2,8 @@ pcall(
     function() end 
 )
 
+_G.TOIKHONGBINGU = true
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
