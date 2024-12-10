@@ -720,7 +720,6 @@ if _G.Switch_Hub_Series_R then
 		local uig = Instance.new("UIGridLayout")
 		uig.Parent = game:GetService("CoreGui")["Switch Hub C"].FruitB
 		uig.CellSize = UDim2.new(0, 55, 0, 55)
-		--[[
 		click(game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton) -- open menu
 		wait(.5)
 		click(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryButton) -- open Beg
@@ -730,9 +729,8 @@ if _G.Switch_Hub_Series_R then
 		Load_Info('Blox Fruit','FruitB')
 		game:GetService("CoreGui")["Switch Hub C"].FruitB.Visible = true
 		click(game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton) -- open menu
-		]]
 		wait(.5)
-		--[[if _G.Setting['Black Screen'] then
+		if _G.Setting['Black Screen'] then
 			ToggleImgUi.ImageTransparency = 0.3
 			uihide = true
 			game:GetService("CoreGui")["Switch Hub"].Enabled = true
@@ -741,7 +739,7 @@ if _G.Switch_Hub_Series_R then
 			togle_up = true
 			wait()
 			ToggleImgUi.ImageTransparency = 0
-		end]]
+		end
 		function Set_Status_X(vu)
 			game:GetService("CoreGui")["Switch Hub"].Text3.Fragments.Text = vu]]
 		end
