@@ -8689,22 +8689,22 @@ if _G.Switch_Hub_Series_R then
                                                     end
                                                     RandomFarm = math.random(1,5)
                                                     if RandomFarm == 1 then
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 35, 1))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 5, 1))
 														AttackNoCDX()
                                                     elseif RandomFarm == 2 then
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 1, 35))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 1, 5))
 														AttackNoCDX()
                                                     elseif RandomFarm == 3 then
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(1, 1, -35))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(1, 1, -5))
 														AttackNoCDX()
                                                     elseif RandomFarm == 4 then
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(35, 1, 0))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(5, 1, 0))
 														AttackNoCDX()
                                                     elseif RandomFarm == 5 then
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(-35, 1, 0))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(-5, 1, 0))
 														AttackNoCDX()
                                                     else
-                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 35, 1))
+                                                        TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 5, 1))
 														AttackNoCDX()
                                                     end
                                                     EquipWeapon(Weapon)
