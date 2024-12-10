@@ -808,10 +808,6 @@ if _G.Switch_Hub_Series_R then
 		_G.library = loadstring(game:HttpGet("https://raw.githubusercontent.com/soulju2097/Gui/main/README.md"))()
 		library = _G.library
 	end
-	
-_G.library = loadstring(game:HttpGet("https://raw.githubusercontent.com/soulju2097/Gui/main/README.md"))()
-		library = _G.library
-
 
 	local PepsisWorld = library:CreateWindow({
 		Name = "nung lon hub",
