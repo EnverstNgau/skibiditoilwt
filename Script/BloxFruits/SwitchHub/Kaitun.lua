@@ -143,7 +143,7 @@ _G.Mastery = {
 
 _G.Setting = {
     ['FPS Booster'] = true,
-    ['Auto Close Ui'] = true
+    ['Auto Close Ui'] = false
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/bestluxca/CrackedFree/main/Axionix%20Kaitun"))()
