@@ -3506,17 +3506,17 @@ if _G.Switch_Hub_Series_R then
 							repeat wait(.1)
 								RandomFarm = math.random(1,5)
 								if RandomFarm == 1 then
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 35, 1))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 3, 1))
 								elseif RandomFarm == 2 then
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 1, 35))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 1, 3))
 								elseif RandomFarm == 3 then
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(1, 1, -35))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(1, 1, -5))
 								elseif RandomFarm == 4 then
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(35, 1, 0))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(5, 1, 0))
 								elseif RandomFarm == 5 then
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(-35, 1, 0))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(-3, 1, 0))
 								else
-									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 35, 1))
+									TPX(v.HumanoidRootPart.CFrame * CFrame.new(0, 3, 1))
 								end
 								EquipWeapon(Weapon)
 								if game:GetService("Players").LocalPlayer.PlayerGui.Main.PvpDisabled.Visible == true then
