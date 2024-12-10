@@ -3,6 +3,9 @@ pcall(
        Max = math.huge
        Min = 11
        loadstring(game:HttpGet("https://raw.githubusercontent.com/EnverstNgau/skibiditoilwt/refs/heads/main/Script/Mics/MoreCamera.lua"))()
+       if _G.Setting['FPS Booster'] then
+          loadstring(Game:HttpGet("https://raw.githubusercontent.com/EnverstNgau/NewFreeScript/refs/heads/main/Misc/SuperFpsBoost.lua"))()
+       end
     end 
 )
 
@@ -141,9 +144,4 @@ _G.Mastery = {
     ['Fruit'] = true
 }
 
-_G.Setting = {
-    ['FPS Booster'] = true,
-    ['Auto Close Ui'] = false
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/bestluxca/CrackedFree/main/Axionix%20Kaitun"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EnverstNgau/skibiditoilwt/refs/heads/main/Script/BloxFruits/SwitchHub/AxionixHub.lua"))()
