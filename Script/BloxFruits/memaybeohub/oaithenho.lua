@@ -597,7 +597,7 @@ if _G.Switch_Hub_Series_R then
 		Luna.Name = "SWP"
 		Luna.Parent = game.CoreGui
 		Luna.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-		-[[
+		--[[
 		ToggleFrameUi.Name = "ToggleFrameUi"
 		ToggleFrameUi.Parent = Luna
 		ToggleFrameUi.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
