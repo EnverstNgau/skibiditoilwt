@@ -732,9 +732,9 @@ if _G.Switch_Hub_Series_R then
 		click(game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton) -- open menu
 		]]
 		wait(.5)
-		if _G.Setting['Black Screen'] then
+		if mamayngon then
 			ToggleImgUi.ImageTransparency = 0.3
-			uihide = true
+			uihide = false
 			game:GetService("CoreGui")["Switch Hub"].Enabled = true
 			game.Lighting.ExposureCompensation = -10
 			--BlurSwitch.Size = 80
@@ -745,22 +745,21 @@ if _G.Switch_Hub_Series_R then
 		function Set_Status_X(vu)
 			game:GetService("CoreGui")["Switch Hub"].Text3.Fragments.Text = vu
 		end
-		--[[
 		local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/alichnochi/code/main/notifycation.lua"))()
 		local Notify = AkaliNotif.Notify
 		Notify({
 			Description = '✅ Turn on and off (White Screen "Y")',
-			Title = "Switch Hub Kaitun | "..tostring(game.Players.LocalPlayer.Name),
+			Title = " nung lon hub | "..tostring(game.Players.LocalPlayer.Name),
 			Duration = 5
 		})
 		Notify({
-			Description = '👾 Turn on and off (Farming "B")',
-			Title = "Automatic Farming",
-			Duration = 5
+			Description = '👾 elgato hub con chos',
+			Title = "best kaitun roi ak @@",
+			Duration = math.huge
 		})
 		local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/alichnochi/code/main/notification.status.lua", true))()
-		status_pass = Notification.new("message", 'Switch Hub Kaitun | ', "Status: ...")
-		status_pass:changeColor(Color3.fromRGB(15,15,15),Color3.fromRGB(42, 170, 138),Color3.fromRGB(255, 244, 0))
+		status_pass = Notification.new("message", "nung lon hub | ', "Status: ...")
+		status_pass:changeColor(Color3.fromRGB(15,15,15),Color3.fromRGB(42, 110, 138),Color3.fromRGB(25, 244, 0))
 		spawn(function()
 			while wait(1) do
 				pcall(function()
@@ -810,8 +809,12 @@ if _G.Switch_Hub_Series_R then
 		library = _G.library
 	end
 	
+_G.library = loadstring(game:HttpGet("https://raw.githubusercontent.com/soulju2097/Gui/main/README.md"))()
+		library = _G.library
+
+
 	local PepsisWorld = library:CreateWindow({
-		Name = "Switch Hub [ Kaitun ]",
+		Name = "nung lon hub",
 		Themeable = {	
 		}
 	})
@@ -876,7 +879,7 @@ if _G.Switch_Hub_Series_R then
 		})
 		
 		Start_S:AddToggle({
-		Name = 'Auto Farm',
+		Name = 'Enabled / Disabled',
 		Enabled = _G.Switch_Hub_Series_R,
 		Callback = function(vu)
 			Auto_Farm_Kaitun = vu
