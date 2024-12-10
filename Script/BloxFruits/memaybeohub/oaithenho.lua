@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 
 getgenv().Faster = { 
@@ -652,7 +651,7 @@ if _G.Switch_Hub_Series_R then
 		Uitoggle.Position = UDim2.new(0.14, 0, 0.1, 0)
 		Uitoggle.Size = UDim2.new(0, 137, 0, 25)
 		Uitoggle.Font = Enum.Font.GothamSemibold
-		Uitoggle.Text = "Switch Hub Kaitun"
+		Uitoggle.Text = "memaybeo hub ( series skid )"
 		Uitoggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Uitoggle.TextSize = 12.000
 		
@@ -750,7 +749,7 @@ if _G.Switch_Hub_Series_R then
 		local Notify = AkaliNotif.Notify
 		Notify({
 			Description = '✅ Turn on and off (White Screen "Y")',
-			Title = "Switch Hub Kaitun | "..tostring(game.Players.LocalPlayer.Name),
+			Title = "memaybeo hub | "..tostring(game.Players.LocalPlayer.Name),
 			Duration = 5
 		})
 		Notify({
