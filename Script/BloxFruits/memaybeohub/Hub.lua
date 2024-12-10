@@ -733,7 +733,7 @@ if _G.Switch_Hub_Series_R then
 		]]
 		wait(.5)
 		if _G.Setting['Black Screen'] then
-			ToggleImgUi.ImageTransparency = 0.3
+			--[[ToggleImgUi.ImageTransparency = 0.3
 			uihide = true
 			game:GetService("CoreGui")["Switch Hub"].Enabled = true
 			game.Lighting.ExposureCompensation = -10
@@ -743,7 +743,7 @@ if _G.Switch_Hub_Series_R then
 			ToggleImgUi.ImageTransparency = 0
 		end
 		function Set_Status_X(vu)
-			game:GetService("CoreGui")["Switch Hub"].Text3.Fragments.Text = vu
+			game:GetService("CoreGui")["Switch Hub"].Text3.Fragments.Text = vu]]
 		end
 		--[[
 		local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/alichnochi/code/main/notifycation.lua"))()
@@ -759,7 +759,7 @@ if _G.Switch_Hub_Series_R then
 			Duration = 5
 		})
 		local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/alichnochi/code/main/notification.status.lua", true))()
-		status_pass = Notification.new("message", 'Switch Hub Kaitun | ', "Status: ...")
+		status_pass = Notification.new("message", 'memaybeo hub | ', "Status: ...")
 		status_pass:changeColor(Color3.fromRGB(15,15,15),Color3.fromRGB(42, 170, 138),Color3.fromRGB(255, 244, 0))
 		spawn(function()
 			while wait(1) do
