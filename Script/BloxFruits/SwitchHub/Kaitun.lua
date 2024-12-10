@@ -5,18 +5,24 @@ pcall(
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-local fpsLabel = Instance.new("TextLabel")
-fpsLabel.Size = UDim2.new(0, 200, 0, 50)
-fpsLabel.Position = UDim2.new(0, 10, 0, 10)
-fpsLabel.BackgroundTransparency = 1
-fpsLabel.TextSize = 30
-fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-fpsLabel.Text = "Fps: 0"
-fpsLabel.Parent = screenGui
+local fpsFrame = Instance.new("Frame")
+fpsFrame.Size = UDim2.new(0, 200, 0, 50)
+fpsFrame.Position = UDim2.new(0, 10, 0, 10)
+fpsFrame.BackgroundTransparency = 1
+fpsFrame.Parent = screenGui
 
 local lastTime = tick()
 local frames = 0
 local fps = 0
+
+local function getRandomColor()
+    return Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255))
+end
+
+local textLabels = {}
+
+local changeColorInterval = 0.5
+local timeElapsed = 0
 
 game:GetService("RunService").RenderStepped:Connect(function()
     frames = frames + 1
@@ -26,10 +32,37 @@ game:GetService("RunService").RenderStepped:Connect(function()
         fps = frames
         frames = 0
         lastTime = currentTime
-            
-        fpsLabel.Text = "Fps: " .. fps
+
+        local fpsText = "Fps: " .. fps
+
+        for _, child in pairs(fpsFrame:GetChildren()) do
+            child:Destroy()
+        end
+
+        for i = 1, #fpsText do
+            local char = fpsText:sub(i, i)
+            local textLabel = Instance.new("TextLabel")
+            textLabel.Size = UDim2.new(0, 30, 0, 50)  
+            textLabel.Position = UDim2.new(0, (i - 1) * 21, 0, 0)
+            textLabel.BackgroundTransparency = 1
+            textLabel.TextSize = 30
+            textLabel.Text = char
+            textLabel.Parent = fpsFrame
+            textLabels[i] = textLabel
+        end
+    end
+
+    timeElapsed = timeElapsed + game:GetService("RunService").Heartbeat:Wait()
+        
+    if timeElapsed >= changeColorInterval then
+        timeElapsed = 0 
+
+        for i, textLabel in pairs(textLabels) do
+            textLabel.TextColor3 = getRandomColor()
+        end
     end
 end)
+
 
 wait(1)
 
