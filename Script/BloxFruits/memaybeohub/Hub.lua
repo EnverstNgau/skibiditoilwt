@@ -594,7 +594,7 @@ if _G.Switch_Hub_Series_R then
 		local Yedhee = Instance.new("TextLabel")
 		local SearchStroke = Instance.new("UIStroke")
 		
-		
+		--[[
 		Luna.Name = "SWP"
 		Luna.Parent = game.CoreGui
 		Luna.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -652,7 +652,7 @@ if _G.Switch_Hub_Series_R then
 		Uitoggle.Position = UDim2.new(0.14, 0, 0.1, 0)
 		Uitoggle.Size = UDim2.new(0, 137, 0, 25)
 		Uitoggle.Font = Enum.Font.GothamSemibold
-		Uitoggle.Text = "Switch Hub Kaitun"
+		Uitoggle.Text = "memaybeo hub"
 		Uitoggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Uitoggle.TextSize = 12.000
 		
@@ -669,7 +669,7 @@ if _G.Switch_Hub_Series_R then
 		
 		if game.CoreGui:FindFirstChild('Switch Hub C') then
 			game.CoreGui:FindFirstChild('Switch Hub C'):Destroy()
-		end
+		end]]
 		local function click(a)
 			game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2.5,a.AbsolutePosition.Y+50,0,true,a,1)
 			game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2.5,a.AbsolutePosition.Y+50,0,false,a,1)
@@ -732,8 +732,8 @@ if _G.Switch_Hub_Series_R then
 		click(game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton) -- open menu
 		]]
 		wait(.5)
-		if _G.Setting['Black Screen'] then
-			--[[ToggleImgUi.ImageTransparency = 0.3
+		--[[if _G.Setting['Black Screen'] then
+			ToggleImgUi.ImageTransparency = 0.3
 			uihide = true
 			game:GetService("CoreGui")["Switch Hub"].Enabled = true
 			game.Lighting.ExposureCompensation = -10
@@ -741,11 +741,10 @@ if _G.Switch_Hub_Series_R then
 			togle_up = true
 			wait()
 			ToggleImgUi.ImageTransparency = 0
-		end
+		end]]
 		function Set_Status_X(vu)
 			game:GetService("CoreGui")["Switch Hub"].Text3.Fragments.Text = vu]]
 		end
-		--[[
 		local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/alichnochi/code/main/notifycation.lua"))()
 		local Notify = AkaliNotif.Notify
 		Notify({
