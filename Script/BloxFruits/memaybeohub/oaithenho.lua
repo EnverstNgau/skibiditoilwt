@@ -597,7 +597,7 @@ if _G.Switch_Hub_Series_R then
 		Luna.Name = "SWP"
 		Luna.Parent = game.CoreGui
 		Luna.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-		
+		-[[
 		ToggleFrameUi.Name = "ToggleFrameUi"
 		ToggleFrameUi.Parent = Luna
 		ToggleFrameUi.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
@@ -665,7 +665,7 @@ if _G.Switch_Hub_Series_R then
 		Yedhee.Text = "White Screen (B)"
 		Yedhee.TextColor3 = Color3.fromRGB(0, 255, 186) 
 		Yedhee.TextSize = 12.000
-		
+		]]
 		if game.CoreGui:FindFirstChild('Switch Hub C') then
 			game.CoreGui:FindFirstChild('Switch Hub C'):Destroy()
 		end
