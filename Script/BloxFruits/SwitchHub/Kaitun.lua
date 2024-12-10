@@ -1,5 +1,9 @@
 pcall(
-    function() end 
+    function() 
+       Max = math.huge
+       Min = 11
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/EnverstNgau/skibiditoilwt/refs/heads/main/Script/Mics/MoreCamera.lua"))()
+    end 
 )
 
 _G.TOIKHONGBINGU = true
